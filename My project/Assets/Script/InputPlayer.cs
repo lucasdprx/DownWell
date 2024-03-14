@@ -17,6 +17,11 @@ public class InputPlayer : MonoBehaviour
 
     void Update()
     {
+        MovePlayer();
+    }
+
+    private void MovePlayer()
+    {
         if (Input.GetKey(KeyCode.A))
         {
             if (_rigidbody.velocity.x > 0)
