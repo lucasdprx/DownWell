@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 8222361560769611341}
   - component: {fileID: 4901292041352053568}
   m_Layer: 2
-  m_Name: Capsule
-  m_TagString: Untagged
+  m_Name: EnnemiWall
+  m_TagString: Ennemi
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -146,7 +146,7 @@ GameObject:
   - component: {fileID: 4556479451294987103}
   m_Layer: 0
   m_Name: EnnemiWall
-  m_TagString: Untagged
+  m_TagString: Ennemi
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

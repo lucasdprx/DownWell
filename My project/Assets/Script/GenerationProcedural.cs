@@ -2,19 +2,24 @@ using UnityEngine;
 
 public class GenerationProcedural : MonoBehaviour
 {
+    [Header("Tiles")]
     [SerializeField] private GameObject _blockDestructible;
     [SerializeField] private GameObject _blockInvinsible;
+
+    [Header("Ennemy")]
     [SerializeField] private GameObject _ennemiFly;
     [SerializeField] private GameObject _ennemiWall;
 
+    [Header("Map")]
     [SerializeField] private Transform _player;
-
     [SerializeField] private int _seed;
-
     [SerializeField] private float _chanceSpawn;
+
+    [Header("Lenght")]
     [SerializeField] private int _height;
     [SerializeField] private int _width;
 
+    [Header("ChanceSpawn")]
     [SerializeField] private int _chanceSpawnEnnemiFly;
     [SerializeField] private int _chanceSpawnEnnemiWall;
 
