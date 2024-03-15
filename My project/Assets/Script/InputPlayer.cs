@@ -28,7 +28,7 @@ public class InputPlayer : MonoBehaviour
                 _rigidbody.velocity = new Vector2(0, _rigidbody.velocity.y);
             if (_rigidbody.velocity.x > -_maxSpeed)
             {
-                _rigidbody.AddForce(Vector2.left * _speed / 10, ForceMode2D.Force);
+                _rigidbody.AddForce(Vector2.left * _speed * Time.deltaTime, ForceMode2D.Force);
                 if (_rigidbody.velocity.x < -_maxSpeed)
                     _rigidbody.velocity = new Vector2(-_maxSpeed, _rigidbody.velocity.y);
             }
@@ -40,7 +40,7 @@ public class InputPlayer : MonoBehaviour
 
             if (_rigidbody.velocity.x < _maxSpeed)
             {
-                _rigidbody.AddForce(Vector2.right * _speed / 10, ForceMode2D.Force);
+                _rigidbody.AddForce(Vector2.right * _speed * Time.deltaTime, ForceMode2D.Force);
                 if (_rigidbody.velocity.x > _maxSpeed)
                     _rigidbody.velocity = new Vector2(_maxSpeed, _rigidbody.velocity.y);
             }

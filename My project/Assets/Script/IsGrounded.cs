@@ -10,7 +10,15 @@ public class IsGrounded : MonoBehaviour
             _isGrounded = true;
             ShootPlayer.Instance._nbBullet = ShootPlayer.Instance._maxBullet;
             ShootPlayer.Instance.ResetImageBullet();
-        }  
+        }
+        
+        if (other.TryGetComponent(out Move_Ennemi Ennemi))
+        {
+            ShootPlayer.Instance.Jump(0.5f);
+            ShootPlayer.Instance._nbBullet = ShootPlayer.Instance._maxBullet;
+            ShootPlayer.Instance.ResetImageBullet();
+            Destroy(other.gameObject);
+        }
     }
 
     private void OnTriggerExit2D(Collider2D other)

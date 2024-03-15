@@ -35,7 +35,7 @@ public class ShootPlayer : MonoBehaviour
         if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space))
         {
             if (IsGrounded._isGrounded)
-                _rbPlayer.AddForce(Vector2.up * _ForceJump, ForceMode2D.Force);
+                Jump(0.75f);
             else if (_nbBullet > 0)
             {
                 SpawnBullet();
@@ -59,6 +59,11 @@ public class ShootPlayer : MonoBehaviour
         StartCoroutine(DespawnBullet(0.5f, bal));
     }
 
+    public void Jump(float multiplier)
+    {
+        _rbPlayer.velocity = new Vector2(_rbPlayer.velocity.x, 0);
+        _rbPlayer.AddForce(Vector2.up * _ForceJump * multiplier, ForceMode2D.Force);
+    }
     private void UpdateImageBulet()
     {
         _imageBullet.sizeDelta = new Vector2(_imageBullet.sizeDelta.x, _heightImageBullet / _maxBullet * _nbBullet);

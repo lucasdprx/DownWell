@@ -379,7 +379,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _player: {fileID: 721343028}
-  _speed: 30
+  _speed: 2500
   _maxSpeed: 15
   _rigidbody: {fileID: 721343029}
 --- !u!1 &778150245
@@ -515,9 +515,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _blockDestructible: {fileID: 261326696890255181, guid: bce7c79af73d4e341ab66c6b9712d556, type: 3}
   _blockInvinsible: {fileID: 3348746551927292784, guid: bff4fbcac1503894ebde8ddfffa5dfa1, type: 3}
+  _ennemi: {fileID: 2364283250375271050, guid: 14ae7fd8618ff4f4ebf75f5ecb485f02, type: 3}
   _player: {fileID: 721343031}
   _seed: 0
   _chanceSpawn: 0.6
+  _chanceSpawnEnnemi: 300
   _height: 1000
   _width: 30
 --- !u!4 &1004900469
@@ -632,8 +634,8 @@ Transform:
   m_GameObject: {fileID: 1245226906}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 54.8141, y: 0, z: 0}
-  m_LocalScale: {x: 50.6281, y: 10000, z: 1}
+  m_LocalPosition: {x: 87.6726, y: 0, z: 0}
+  m_LocalScale: {x: 116.34338, y: 10000, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1004900469}
@@ -861,8 +863,8 @@ Transform:
   m_GameObject: {fileID: 1876166513}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -25.814, y: 0, z: 0}
-  m_LocalScale: {x: 50.6281, y: 10000, z: 1}
+  m_LocalPosition: {x: -62.2125, y: 0, z: 0}
+  m_LocalScale: {x: 123.426254, y: 10000, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1004900469}
