@@ -12,7 +12,7 @@ public class IsGrounded : MonoBehaviour
             ShootPlayer.Instance.ResetImageBullet();
         }
         
-        if (other.TryGetComponent(out Move_Ennemi Ennemi))
+        if (other.TryGetComponent(out Move_EnnemiFly EnnemiFly) || other.TryGetComponent(out Move_EnnemiWall EnnemiWall))
         {
             ShootPlayer.Instance.Jump(0.5f);
             ShootPlayer.Instance._nbBullet = ShootPlayer.Instance._maxBullet;

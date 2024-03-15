@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Move_Ennemi : MonoBehaviour
+public class Move_EnnemiFly : MonoBehaviour
 {
     [SerializeField] private float _speed;
     [SerializeField] private float _distRayCast;
