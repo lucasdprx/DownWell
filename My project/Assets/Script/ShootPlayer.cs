@@ -15,6 +15,8 @@ public class ShootPlayer : MonoBehaviour
     [SerializeField] private float _heightImageBullet;
     [SerializeField] private RectTransform _imageBullet;
     private Vector3 _initposImage;
+    [SerializeField] private ParticleSystem _particleShoot;
+    [SerializeField] private ParticleSystem _particleFeather;
 
     public static ShootPlayer Instance;
 
@@ -39,8 +41,9 @@ public class ShootPlayer : MonoBehaviour
             else if (_nbBullet > 0)
             {
                 SpawnBullet();
+                _particleShoot.Play();
                 _nbBullet--;
-                UpdateImageBulet();
+                UpdateImageBullet();
             }
         }
     }
@@ -64,7 +67,7 @@ public class ShootPlayer : MonoBehaviour
         _rbPlayer.velocity = new Vector2(_rbPlayer.velocity.x, 0);
         _rbPlayer.AddForce(Vector2.up * _ForceJump * multiplier, ForceMode2D.Force);
     }
-    private void UpdateImageBulet()
+    public void UpdateImageBullet()
     {
         _imageBullet.sizeDelta = new Vector2(_imageBullet.sizeDelta.x, _heightImageBullet / _maxBullet * _nbBullet);
         _imageBullet.transform.position -= new Vector3(0, _heightImageBullet / (_maxBullet * 2) , 0);
@@ -74,5 +77,21 @@ public class ShootPlayer : MonoBehaviour
     {
         _imageBullet.sizeDelta = new Vector2(_imageBullet.sizeDelta.x, _heightImageBullet);
         _imageBullet.transform.position = _initposImage;
+    }
+
+    public void AddImageBullet()
+    {
+        if (_nbBullet < _maxBullet)
+        {
+            _nbBullet++;
+            _imageBullet.sizeDelta = new Vector2(_imageBullet.sizeDelta.x, _heightImageBullet / _maxBullet * _nbBullet);
+            _imageBullet.transform.position += new Vector3(0, _heightImageBullet / (_maxBullet * 2), 0);
+        }
+    }
+
+    public void ParticleFeather(Collider2D collision)
+    {
+        _particleFeather.transform.position = collision.transform.position;
+        _particleFeather.Play();
     }
 }

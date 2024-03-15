@@ -45,5 +45,7 @@ public class InputPlayer : MonoBehaviour
                     _rigidbody.velocity = new Vector2(_maxSpeed, _rigidbody.velocity.y);
             }
         }
+        else
+            _rigidbody.velocity = new Vector2(_rigidbody.velocity.x * 0.994f, _rigidbody.velocity.y);
     }
 }

@@ -18,6 +18,7 @@ public class TakeDamage : MonoBehaviour
 
     IEnumerator AnimationDeath(float seconds) 
     {
+        Time.timeScale = 0.5f;
         for (int i = 0; i < _nbFlicker; i++)
         {
             yield return new WaitForSeconds(seconds);
@@ -28,5 +29,6 @@ public class TakeDamage : MonoBehaviour
         }
         gameObject.GetComponent<SpriteRenderer>().enabled = true;
         _canTakeDamage = true;
+        Time.timeScale = 1.0f;
     }
 }
