@@ -46,6 +46,8 @@ public class GenerationProcedural : MonoBehaviour
                 else if ((x == _width - 1 || x == 0) && Random.Range(0, _chanceSpawnEnnemiWall) == 0)
                 {
                     GameObject ennemiWall = Instantiate(_ennemiWall, new Vector3(x, y), Quaternion.identity);
+                    if (x == _width - 1)
+                        ennemiWall.transform.Rotate(0, 180, 0);
                 }
             }
         }

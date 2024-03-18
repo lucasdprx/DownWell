@@ -10,7 +10,10 @@ public class Move_EnnemiWall : MonoBehaviour
         RaycastHit2D hit = Physics2D.Raycast(transform.position, _direction * Vector2.up, _distRayCast);
         if (hit.collider != null)
             if (hit.collider.gameObject.layer == 7)
+            {
                 _direction = -_direction;
+                gameObject.transform.Rotate(new Vector3(0f, 180f, 0f));
+            }
         gameObject.transform.position += new Vector3(0, _speed * _direction * Time.deltaTime, 0);
         if (gameObject.transform.position.y >= 100)
             _direction = -_direction;
