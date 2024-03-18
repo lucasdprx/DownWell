@@ -4,6 +4,7 @@ public class IsGrounded : MonoBehaviour
 {
     public static bool _isGrounded;
     [SerializeField] private ParticleSystem _particleFeather;
+    [SerializeField] private ParticleSystem _particleFlask;
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -18,10 +19,15 @@ public class IsGrounded : MonoBehaviour
         {
             _particleFeather.gameObject.transform.position = collision.transform.position;
             _particleFeather.Play();
+            ShootPlayer.Instance.Jump(0.5f);
+            ShootPlayer.Instance.AddImageBullet();
+            Destroy(collision.gameObject);
         }
 
-        if (collision.gameObject.TryGetComponent(out Move_EnnemiFly EnnemiFly) || collision.gameObject.TryGetComponent(out Move_EnnemiWall EnnemiWall))
+        else if (collision.gameObject.TryGetComponent(out Move_EnnemiWall _))
         {
+            _particleFlask.gameObject.transform.position = collision.transform.position;
+            _particleFlask.Play();
             ShootPlayer.Instance.Jump(0.5f);
             ShootPlayer.Instance.AddImageBullet();
             Destroy(collision.gameObject);

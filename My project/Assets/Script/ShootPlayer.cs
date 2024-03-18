@@ -7,7 +7,7 @@ public class ShootPlayer : MonoBehaviour
     [SerializeField] private GameObject _bullet;
     [SerializeField] private float _speedShoot;
 
-    [SerializeField] private Rigidbody2D _rbPlayer;
+    public Rigidbody2D _rbPlayer;
     [SerializeField] private int _ForceJump;
 
     public int _maxBullet;
@@ -17,6 +17,7 @@ public class ShootPlayer : MonoBehaviour
     private Vector3 _initposImage;
     [SerializeField] private ParticleSystem _particleShoot;
     [SerializeField] private ParticleSystem _particleFeather;
+    [SerializeField] private ParticleSystem _particleFlask;
 
     public static ShootPlayer Instance;
 
@@ -93,5 +94,11 @@ public class ShootPlayer : MonoBehaviour
     {
         _particleFeather.transform.position = collision.transform.position;
         _particleFeather.Play();
+    }
+
+    public void ParticleFlaske(Collider2D collision)
+    {
+        _particleFlask.transform.position = collision.transform.position;
+        _particleFlask.Play();
     }
 }

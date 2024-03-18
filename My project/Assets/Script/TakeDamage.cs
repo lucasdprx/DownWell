@@ -5,6 +5,7 @@ public class TakeDamage : MonoBehaviour
 {
     [SerializeField] private int _nbFlicker;
     [SerializeField] private float _speedFlicker;
+    [SerializeField] private float _timeScale;
     private bool _canTakeDamage = true;
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -18,7 +19,7 @@ public class TakeDamage : MonoBehaviour
 
     IEnumerator AnimationDeath(float seconds) 
     {
-        Time.timeScale = 0.5f;
+        Time.timeScale = _timeScale;
         for (int i = 0; i < _nbFlicker; i++)
         {
             yield return new WaitForSeconds(seconds);

@@ -116,6 +116,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _speed: 5
   _distRayCast: 1
+  _distEnnemi: 10
 --- !u!95 &1840819843026481339
 Animator:
   serializedVersion: 5

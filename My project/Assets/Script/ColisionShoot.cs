@@ -8,10 +8,14 @@ public class ColisionShoot : MonoBehaviour
         if (collision.gameObject.TryGetComponent(out Move_EnnemiFly _))
         {
             ShootPlayer.Instance.ParticleFeather(collision);
+            ShootPlayer.Instance.AddImageBullet();
+            Destroy(collision.gameObject);
+            Destroy(gameObject);
         }
 
-        if (collision.gameObject.TryGetComponent(out Move_EnnemiFly EnnemiFly) || collision.gameObject.TryGetComponent(out Move_EnnemiWall EnnemiWall))
+        else if (collision.gameObject.TryGetComponent(out Move_EnnemiWall _))
         {
+            ShootPlayer.Instance.ParticleFlaske(collision);
             ShootPlayer.Instance.AddImageBullet();
             Destroy(collision.gameObject);
             Destroy(gameObject);
