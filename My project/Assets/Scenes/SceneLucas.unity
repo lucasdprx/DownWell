@@ -574,7 +574,7 @@ MonoBehaviour:
   _width: 30
   _chanceSpawnEnnemyFly: 300
   _chanceSpawnEnnemyWall: 50
-  _chanceSpawnEnnemyGround: 20
+  _chanceSpawnEnnemyGround: 5
 --- !u!4 &1004900469
 Transform:
   m_ObjectHideFlags: 0

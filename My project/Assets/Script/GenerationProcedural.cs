@@ -51,7 +51,7 @@ public class GenerationProcedural : MonoBehaviour
                     if (x == _width - 1)
                         ennemyWall.transform.Rotate(0, 180, 0);
                 }
-                else if (Mathf.PerlinNoise((x + _width) / 10f + _seed, y / 10f + _seed) >= _chanceSpawn && Random.Range(0, _chanceSpawnEnnemyGround) == 0)
+                else if (Mathf.PerlinNoise(x / 10f + _seed, (y - 1) / 10f + _seed) >= _chanceSpawn && Random.Range(0, _chanceSpawnEnnemyGround) == 0)
                 {
                     GameObject ennemyGround = Instantiate(_ennemyGround, new Vector3(x, y), Quaternion.identity);
                 }
