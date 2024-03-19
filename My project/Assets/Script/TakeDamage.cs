@@ -12,6 +12,7 @@ public class TakeDamage : MonoBehaviour
         if ((collision.gameObject.TryGetComponent(out Move_EnnemiFly EnnemiFly) || collision.gameObject.TryGetComponent(out Move_EnnemiWall EnnemiWall)) && _canTakeDamage
             && !collision.otherCollider.gameObject.TryGetComponent(out IsGrounded isGrounded))
         {
+            FeedBackDamage._heTakeDamage = true;
             _canTakeDamage = false;
             StartCoroutine(AnimationDeath(_speedFlicker));
         }

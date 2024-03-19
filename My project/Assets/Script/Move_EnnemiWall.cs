@@ -15,7 +15,5 @@ public class Move_EnnemiWall : MonoBehaviour
                 gameObject.transform.Rotate(new Vector3(0f, 180f, 0f));
             }
         gameObject.transform.position += new Vector3(0, _speed * _direction * Time.fixedDeltaTime, 0);
-        if (gameObject.transform.position.y >= 100)
-            _direction = -_direction;
     }
 }
