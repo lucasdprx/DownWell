@@ -1,21 +1,25 @@
+using TMPro;
 using UnityEngine;
 
 public class Move_EnnemyGround : MonoBehaviour
 {
-    [SerializeField] private float _speed;
-    [SerializeField] private float _distRayCast;
+    [SerializeField] private float _forceExplosion;
+    [SerializeField] private ParticleSystem _particleExplosion;
 
-    private float _direction = 1;
-    void FixedUpdate()
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        RaycastHit2D hit = Physics2D.Raycast(gameObject.transform.position, new Vector3(_direction, -0.5f, 0), _distRayCast);
-        RaycastHit2D hit2 = Physics2D.Raycast(gameObject.transform.position, new Vector3(_direction, 0, 0), _distRayCast);
-        Debug.DrawRay(transform.position, new Vector3(_direction, -0.5f, 0) * _distRayCast, Color.red);
-        Debug.DrawRay(transform.position, new Vector3(_direction, 0, 0) * _distRayCast, Color.red);
-        if (hit.collider != null)
+        if (collision.gameObject.TryGetComponent(out InputPlayer _) || collision.gameObject.TryGetComponent(out IsGrounded _))
         {
-            _direction = -_direction;
+            ShootPlayer.Instance.SpawnParticle(collision, ShootPlayer.Instance._particleExplosion);
+            collision.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(collision.rigidbody.velocity.x, 0);
+            collision.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector3.up * _forceExplosion, ForceMode2D.Force);
+            Destroy(gameObject);
         }
-        gameObject.transform.position += new Vector3(_speed * _direction * Time.fixedDeltaTime, 0, 0);
+        if (collision.gameObject.TryGetComponent(out ColisionShoot _))
+        {
+            ShootPlayer.Instance.SpawnParticle(collision, ShootPlayer.Instance._particleExplosion);
+            Destroy(collision.gameObject);
+            Destroy(gameObject);
+        }
     }
 }

@@ -15,9 +15,11 @@ public class ShootPlayer : MonoBehaviour
     [SerializeField] private float _heightImageBullet;
     [SerializeField] private RectTransform _imageBullet;
     private Vector3 _initposImage;
-    [SerializeField] private ParticleSystem _particleShoot;
-    [SerializeField] private ParticleSystem _particleFeather;
-    [SerializeField] private ParticleSystem _particleFlask;
+
+    public ParticleSystem _particleShoot;
+    public ParticleSystem _particleFeather;
+    public ParticleSystem _particleFlask;
+    public ParticleSystem _particleExplosion;
 
     public static ShootPlayer Instance;
 
@@ -89,16 +91,9 @@ public class ShootPlayer : MonoBehaviour
             _imageBullet.transform.position += new Vector3(0, _heightImageBullet / (_maxBullet * 2), 0);
         }
     }
-
-    public void ParticleFeather(Collider2D collision)
+    public void SpawnParticle(Collision2D collision, ParticleSystem _particle)
     {
-        _particleFeather.transform.position = collision.transform.position;
-        _particleFeather.Play();
-    }
-
-    public void ParticleFlaske(Collider2D collision)
-    {
-        _particleFlask.transform.position = collision.transform.position;
-        _particleFlask.Play();
+        _particle.transform.position = collision.transform.position;
+        _particle.Play();
     }
 }

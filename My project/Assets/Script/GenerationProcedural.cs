@@ -4,7 +4,6 @@ public class GenerationProcedural : MonoBehaviour
 {
     [Header("Tiles")]
     [SerializeField] private GameObject _blockDestructible;
-    [SerializeField] private GameObject _blockInvinsible;
 
     [Header("Ennemy")]
     [SerializeField] private GameObject _ennemyFly;

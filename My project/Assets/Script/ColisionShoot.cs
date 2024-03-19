@@ -2,12 +2,11 @@ using UnityEngine;
 
 public class ColisionShoot : MonoBehaviour
 {
-    
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.TryGetComponent(out Move_EnnemiFly _))
         {
-            ShootPlayer.Instance.ParticleFeather(collision);
+            ShootPlayer.Instance.SpawnParticle(collision, ShootPlayer.Instance._particleFeather);
             ShootPlayer.Instance.AddImageBullet();
             Destroy(collision.gameObject);
             Destroy(gameObject);
@@ -15,7 +14,7 @@ public class ColisionShoot : MonoBehaviour
 
         else if (collision.gameObject.TryGetComponent(out Move_EnnemiWall _))
         {
-            ShootPlayer.Instance.ParticleFlaske(collision);
+            ShootPlayer.Instance.SpawnParticle(collision, ShootPlayer.Instance._particleFlask);
             ShootPlayer.Instance.AddImageBullet();
             Destroy(collision.gameObject);
             Destroy(gameObject);
