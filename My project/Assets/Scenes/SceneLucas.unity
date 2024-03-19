@@ -564,15 +564,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _blockDestructible: {fileID: 261326696890255181, guid: bce7c79af73d4e341ab66c6b9712d556, type: 3}
   _blockInvinsible: {fileID: 3348746551927292784, guid: bff4fbcac1503894ebde8ddfffa5dfa1, type: 3}
-  _ennemiFly: {fileID: 2364283250375271050, guid: 14ae7fd8618ff4f4ebf75f5ecb485f02, type: 3}
-  _ennemiWall: {fileID: 6134325240764726164, guid: e1d014afcb29e9846abe1666f44e2857, type: 3}
+  _ennemyFly: {fileID: 2364283250375271050, guid: 14ae7fd8618ff4f4ebf75f5ecb485f02, type: 3}
+  _ennemyWall: {fileID: 6134325240764726164, guid: e1d014afcb29e9846abe1666f44e2857, type: 3}
+  _ennemyGround: {fileID: 8210505922975446047, guid: 3cb12e32ccc7ba644878ad3d433d6612, type: 3}
   _player: {fileID: 721343031}
   _seed: 0
   _chanceSpawn: 0.6
   _height: 1000
   _width: 30
-  _chanceSpawnEnnemiFly: 300
-  _chanceSpawnEnnemiWall: 50
+  _chanceSpawnEnnemyFly: 300
+  _chanceSpawnEnnemyWall: 50
+  _chanceSpawnEnnemyGround: 20
 --- !u!4 &1004900469
 Transform:
   m_ObjectHideFlags: 0
