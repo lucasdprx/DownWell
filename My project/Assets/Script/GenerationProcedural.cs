@@ -16,13 +16,20 @@ public class GenerationProcedural : MonoBehaviour
     [SerializeField] private float _chanceSpawn;
 
     [Header("Lenght")]
-    [SerializeField] private int _height;
+    public int _height;
     [SerializeField] private int _width;
 
     [Header("ChanceSpawn")]
     [SerializeField] private int _chanceSpawnEnnemyFly;
     [SerializeField] private int _chanceSpawnEnnemyWall;
     [SerializeField] private int _chanceSpawnEnnemyGround;
+
+    public static GenerationProcedural Instance;
+
+    private void Awake()
+    {
+        Instance = this;
+    }
 
     void Start()
     {
@@ -32,7 +39,7 @@ public class GenerationProcedural : MonoBehaviour
 
     public void GenerationMap()
     {
-        for (int y = (int)_player.position.y - 2; y > -_height; y--)
+        for (int y = (int)_player.position.y - 2; y > (int)_player.position.y - _height; y--)
         {
             for (int x = 0; x < _width; x++)
             {

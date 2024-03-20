@@ -21,7 +21,6 @@ public class FeedBackDamage : MonoBehaviour
 
     private void Update()
     {
-        print(_spriteRenderer1.color.r);
         if (_heTakeDamage)
         {
             ChangeColorWall();

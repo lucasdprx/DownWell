@@ -24,9 +24,12 @@ public class LifeBar : MonoBehaviour
     }
     public void UpdateImageLifeBar()
     {
-        _nbLife--;
-        _textLife.text = _nbLife.ToString() + " / " + _maxLife.ToString();
-        _imageLifeBar.sizeDelta = new Vector2(_widthImageLifeBar / _maxLife * _nbLife, _imageLifeBar.sizeDelta.y);
-        _imageLifeBar.transform.position -= new Vector3(_widthImageLifeBar / (_maxLife * 2), 0, 0);
+        if (_nbLife > 0)
+        {
+            _nbLife--;
+            _textLife.text = _nbLife.ToString() + " / " + _maxLife.ToString();
+            _imageLifeBar.sizeDelta = new Vector2(_widthImageLifeBar / _maxLife * _nbLife, _imageLifeBar.sizeDelta.y);
+            _imageLifeBar.transform.position -= new Vector3(_widthImageLifeBar / (_maxLife * 2), 0, 0);
+        }
     }
 }
