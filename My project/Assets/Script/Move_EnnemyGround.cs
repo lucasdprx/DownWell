@@ -13,6 +13,7 @@ public class Move_EnnemyGround : MonoBehaviour
             ShootPlayer.Instance.SpawnParticle(collision, ShootPlayer.Instance._particleExplosion);
             collision.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(collision.rigidbody.velocity.x, 0);
             collision.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector3.up * _forceExplosion, ForceMode2D.Force);
+            FeedBackDamage._heTakeDamage = true;
             Destroy(gameObject);
         }
         if (collision.gameObject.TryGetComponent(out ColisionShoot _))
