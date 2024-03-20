@@ -13,6 +13,7 @@ public class TakeDamage : MonoBehaviour
             && !collision.otherCollider.gameObject.TryGetComponent(out IsGrounded isGrounded))
         {
             FeedBackDamage._heTakeDamage = true;
+            LifeBar.Instance.UpdateImageLifeBar();
             _canTakeDamage = false;
             StartCoroutine(AnimationDeath(_speedFlicker));
         }
