@@ -14,6 +14,7 @@ public class MenuManager : MonoBehaviour
     public void StartGame()
     {
         SceneManager.LoadScene("SceneLucas");
+        Time.timeScale = 1.0f;
     }
 
     public void Option()

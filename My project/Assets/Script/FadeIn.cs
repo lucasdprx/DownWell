@@ -20,7 +20,7 @@ public class FadeIn : MonoBehaviour
             }
             else
             {
-                Destroy(_image);
+                _image.gameObject.SetActive(false);
                 _animation = false;
             }
         }

@@ -7,6 +7,7 @@ public class FadeOut : MonoBehaviour
     public bool _animation;
     public void StartAnimation()
     {
+        Time.timeScale = 1.0f;
         _image.gameObject.SetActive(true);
         _animation = true;
         PlayerPrefs.SetFloat("SFX", MinValue.values);
@@ -24,7 +25,10 @@ public class FadeOut : MonoBehaviour
             else
             {
                 _animation = false;
-                MenuManager.Instance.StartGame();
+                if (MenuManager.Instance != null)
+                    MenuManager.Instance.StartGame();
+                else 
+                    VictoryDefeat.Instance.StartGame();
             }
         }
     }
