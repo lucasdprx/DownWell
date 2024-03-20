@@ -17,7 +17,6 @@ public class TextProgression : MonoBehaviour
 
     private void Update()
     {
-        print(Time.timeScale);
         if (!_win)
         {
             _progress = Mathf.Clamp((_initPosPlayer - InputPlayer.Instance._rigidbody.gameObject.transform.position.y) * 100 / (GenerationProcedural.Instance._height + 10), 0, 100.0000f);
