@@ -37,7 +37,7 @@ public class ShootPlayer : MonoBehaviour
     {
         _nbBullet = _maxBullet;
         _initposImage = _imageBullet.position;
-        _imageBullet.sizeDelta = new Vector2(_imageBullet.sizeDelta.x, _heightImageBullet);
+        _heightImageBullet = _imageBullet.sizeDelta.y;
     }
 
     void Update()
@@ -49,6 +49,7 @@ public class ShootPlayer : MonoBehaviour
                 Jump(0.75f);
             else if (_nbBullet > 0)
             {
+                AudioManager.Instance.PlaySong("Shoot");
                 SpawnBullet();
                 _particleShoot.Play();
                 _nbBullet--;

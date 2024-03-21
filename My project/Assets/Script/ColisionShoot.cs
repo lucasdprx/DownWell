@@ -6,6 +6,7 @@ public class ColisionShoot : MonoBehaviour
     {
         if (collision.gameObject.TryGetComponent(out Move_EnnemiFly _))
         {
+            AudioManager.Instance.PlaySong("Bird");
             ShootPlayer.Instance.SpawnParticle(collision, ShootPlayer.Instance._particleFeather);
             ShootPlayer.Instance.AddImageBullet();
             Destroy(collision.gameObject);
@@ -14,6 +15,7 @@ public class ColisionShoot : MonoBehaviour
 
         else if (collision.gameObject.TryGetComponent(out Move_EnnemiWall _))
         {
+            AudioManager.Instance.PlaySong("Snail");
             ShootPlayer.Instance.SpawnParticle(collision, ShootPlayer.Instance._particleFlask);
             ShootPlayer.Instance.AddImageBullet();
             Destroy(collision.gameObject);
@@ -21,6 +23,7 @@ public class ColisionShoot : MonoBehaviour
         }
         else if (collision.gameObject.layer == 7)
         {
+            AudioManager.Instance.PlaySong("Break");
             Destroy(collision.gameObject);
             Destroy(gameObject);
         }

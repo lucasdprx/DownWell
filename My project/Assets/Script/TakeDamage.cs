@@ -12,6 +12,7 @@ public class TakeDamage : MonoBehaviour
         if ((collision.gameObject.TryGetComponent(out Move_EnnemiFly EnnemiFly) || collision.gameObject.TryGetComponent(out Move_EnnemiWall EnnemiWall)) && _canTakeDamage
             && !collision.otherCollider.gameObject.TryGetComponent(out IsGrounded isGrounded))
         {
+            AudioManager.Instance.PlaySong("Damage");
             LifeBar.Instance.UpdateImageLifeBar();
             if (!LifeBar.Instance._isDeath)
             {
@@ -28,12 +29,12 @@ public class TakeDamage : MonoBehaviour
         for (int i = 0; i < _nbFlicker; i++)
         {
             yield return new WaitForSeconds(seconds);
-            if (gameObject.GetComponentInChildren<SpriteRenderer>().enabled)
-                gameObject.GetComponentInChildren<SpriteRenderer>().enabled = false;
+            if (gameObject.transform.GetChild(2).GetComponent<SpriteRenderer>().enabled)
+                gameObject.transform.GetChild(2).GetComponent<SpriteRenderer>().enabled = false;
             else
-                gameObject.GetComponentInChildren<SpriteRenderer>().enabled = true;
+                gameObject.transform.GetChild(2).GetComponent<SpriteRenderer>().enabled = true;
         }
-        gameObject.GetComponentInChildren<SpriteRenderer>().enabled = true;
+        gameObject.transform.GetChild(2).GetComponent<SpriteRenderer>().enabled = true;
         _canTakeDamage = true;
         Time.timeScale = 1.0f;
     }

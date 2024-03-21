@@ -17,6 +17,7 @@ public class IsGrounded : MonoBehaviour
 
         if (collision.gameObject.TryGetComponent(out Move_EnnemiFly _))
         {
+            AudioManager.Instance.PlaySong("Bird");
             _particleFeather.gameObject.transform.position = collision.transform.position;
             _particleFeather.Play();
             ShootPlayer.Instance.Jump(0.5f);
@@ -26,6 +27,7 @@ public class IsGrounded : MonoBehaviour
 
         else if (collision.gameObject.TryGetComponent(out Move_EnnemiWall _))
         {
+            AudioManager.Instance.PlaySong("Snail");
             _particleFlask.gameObject.transform.position = collision.transform.position;
             _particleFlask.Play();
             ShootPlayer.Instance.Jump(0.5f);

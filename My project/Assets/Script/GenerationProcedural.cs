@@ -55,7 +55,7 @@ public class GenerationProcedural : MonoBehaviour
                 {
                     GameObject ennemyFly = Instantiate(_ennemyFly, new Vector3(x, y), Quaternion.identity);
                 }
-                else if ((x == _width - 1 || x == 0) && Random.Range(0, _chanceSpawnEnnemyWall) == 0 && y != 0)
+                else if ((x == _width - 1 || x == 0) && Random.Range(0, _chanceSpawnEnnemyWall) == 0 && y < (int)_player.position.y - 2)
                 {
                     GameObject ennemyWall = Instantiate(_ennemyWall, new Vector3(x, y), Quaternion.identity);
                     if (x == _width - 1)

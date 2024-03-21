@@ -9,6 +9,7 @@ public class Move_EnnemyGround : MonoBehaviour
     {
         if (collision.gameObject.TryGetComponent(out InputPlayer _) || collision.gameObject.TryGetComponent(out IsGrounded _))
         {
+            AudioManager.Instance.PlaySong("Bomb");
             ShootPlayer.Instance.SpawnParticle(collision, ShootPlayer.Instance._particleExplosion);
             collision.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(collision.rigidbody.velocity.x, 0);
             collision.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector3.up * _forceExplosion, ForceMode2D.Force);
@@ -18,6 +19,7 @@ public class Move_EnnemyGround : MonoBehaviour
         }
         if (collision.gameObject.TryGetComponent(out ColisionShoot _))
         {
+            AudioManager.Instance.PlaySong("Bomb");
             ShootPlayer.Instance.SpawnParticle(collision, ShootPlayer.Instance._particleExplosion);
             Destroy(collision.gameObject);
             Destroy(gameObject);

@@ -21,6 +21,7 @@ public class TextProgression : MonoBehaviour
         if (_progress >= 100 && !_finish)
         {
             _finish = true;
+            AudioManager.Instance.PlaySong("Sucess");
             FadeOut.Instance.StartAnimation();
             PlayerPrefs.SetInt("level", PlayerPrefs.GetInt("level") + 1);
         }
