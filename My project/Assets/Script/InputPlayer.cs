@@ -10,9 +10,16 @@ public class InputPlayer : MonoBehaviour
 
     public static InputPlayer Instance;
 
+    private SpriteRenderer _renderer;
+
     private void Awake()
     {
         Instance = this;
+    }
+
+    private void Start()
+    {
+        _renderer = _player.GetComponentInChildren<SpriteRenderer>();
     }
 
     void Update()
@@ -24,6 +31,7 @@ public class InputPlayer : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.A))
         {
+            _renderer.flipX = false;
             if (_rigidbody.velocity.x > 0)
                 _rigidbody.velocity = new Vector2(0, _rigidbody.velocity.y);
             if (_rigidbody.velocity.x > -_maxSpeed)
@@ -35,6 +43,7 @@ public class InputPlayer : MonoBehaviour
         }
         else if (Input.GetKey(KeyCode.D))
         {
+            _renderer.flipX = true;
             if (_rigidbody.velocity.x < 0)
                 _rigidbody.velocity = new Vector2(0, _rigidbody.velocity.y);
 

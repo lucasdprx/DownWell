@@ -21,6 +21,10 @@ public class ShootPlayer : MonoBehaviour
     public ParticleSystem _particleFlask;
     public ParticleSystem _particleExplosion;
 
+    public Sprite _spriteShoot;
+    private Sprite _spritePlayer;
+    [SerializeField] private float _timeSpriteShoot;
+
     public static ShootPlayer Instance;
 
     private void Awake()
@@ -33,12 +37,14 @@ public class ShootPlayer : MonoBehaviour
         _nbBullet = _maxBullet;
         _initposImage = _imageBullet.position;
         _imageBullet.sizeDelta = new Vector2(_imageBullet.sizeDelta.x, _heightImageBullet);
+        _spritePlayer = _rbPlayer.gameObject.GetComponentInChildren<SpriteRenderer>().sprite;
     }
 
     void Update()
     {
         if ((Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space)) && !GamePaused._gameIsPaused && !LifeBar.Instance._isDeath)
         {
+            StartCoroutine(ChangeSprite(_timeSpriteShoot));
             if (IsGrounded._isGrounded)
                 Jump(0.75f);
             else if (_nbBullet > 0)
@@ -49,6 +55,13 @@ public class ShootPlayer : MonoBehaviour
                 UpdateImageBullet();
             }
         }
+    }
+
+    IEnumerator ChangeSprite(float seconds)
+    {
+        _rbPlayer.gameObject.GetComponentInChildren<SpriteRenderer>().sprite = _spriteShoot;
+        yield return new WaitForSeconds(seconds);
+        _rbPlayer.gameObject.GetComponentInChildren<SpriteRenderer>().sprite = _spritePlayer;
     }
 
     IEnumerator DespawnBullet(float seconde, GameObject _gameObject)

@@ -26,12 +26,12 @@ public class TakeDamage : MonoBehaviour
         for (int i = 0; i < _nbFlicker; i++)
         {
             yield return new WaitForSeconds(seconds);
-            if (gameObject.GetComponent<SpriteRenderer>().enabled)
-                gameObject.GetComponent<SpriteRenderer>().enabled = false;
+            if (gameObject.GetComponentInChildren<SpriteRenderer>().enabled)
+                gameObject.GetComponentInChildren<SpriteRenderer>().enabled = false;
             else
-                gameObject.GetComponent<SpriteRenderer>().enabled = true;
+                gameObject.GetComponentInChildren<SpriteRenderer>().enabled = true;
         }
-        gameObject.GetComponent<SpriteRenderer>().enabled = true;
+        gameObject.GetComponentInChildren<SpriteRenderer>().enabled = true;
         _canTakeDamage = true;
         Time.timeScale = 1.0f;
     }
