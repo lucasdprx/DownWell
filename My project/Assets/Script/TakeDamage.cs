@@ -15,7 +15,8 @@ public class TakeDamage : MonoBehaviour
             FeedBackDamage._heTakeDamage = true;
             LifeBar.Instance.UpdateImageLifeBar();
             _canTakeDamage = false;
-            StartCoroutine(AnimationDeath(_speedFlicker));
+            if (!LifeBar.Instance._isDeath)
+                StartCoroutine(AnimationDeath(_speedFlicker));
         }
     }
 

@@ -21,7 +21,7 @@ public class FeedBackDamage : MonoBehaviour
 
     private void Update()
     {
-        if (_heTakeDamage)
+        if (_heTakeDamage && !LifeBar.Instance._isDeath)
         {
             ChangeColorWall();
             if (_spriteRenderer1.color.r <= 0.196f)

@@ -37,7 +37,7 @@ public class ShootPlayer : MonoBehaviour
 
     void Update()
     {
-        if ((Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space)) && !GamePaused._gameIsPaused)
+        if ((Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space)) && !GamePaused._gameIsPaused && !LifeBar.Instance._isDeath)
         {
             if (IsGrounded._isGrounded)
                 Jump(0.75f);

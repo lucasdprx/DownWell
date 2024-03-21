@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -5,6 +6,8 @@ public class VictoryDefeat : MonoBehaviour
 {
     public GameObject _uiVictoryDefeat;
     public static VictoryDefeat Instance;
+
+    public TextMeshProUGUI _textDefeat;
 
     private void Awake()
     {
