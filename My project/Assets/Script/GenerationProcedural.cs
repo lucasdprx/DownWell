@@ -33,6 +33,10 @@ public class GenerationProcedural : MonoBehaviour
 
     void Start()
     {
+        _height += PlayerPrefs.GetInt("level") * 100;
+        _chanceSpawnEnnemyFly += PlayerPrefs.GetInt("level") * 100;
+        _chanceSpawnEnnemyWall += PlayerPrefs.GetInt("level") * 10;
+        _chanceSpawnEnnemyGround += PlayerPrefs.GetInt("level") * 5;
         _seed = Random.Range(-100000, 100000);
         GenerationMap();
     }

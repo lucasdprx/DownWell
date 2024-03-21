@@ -5,12 +5,20 @@ public class FadeOut : MonoBehaviour
 {
     public Image _image;
     public bool _animation;
+
+    public static FadeOut Instance;
+
+    private void Awake()
+    {
+        Instance = this;
+    }
     public void StartAnimation()
     {
         Time.timeScale = 1.0f;
         _image.gameObject.SetActive(true);
         _animation = true;
-        PlayerPrefs.SetFloat("SFX", MinValue.values);
+        if (MenuManager.Instance != null)
+            PlayerPrefs.SetFloat("SFX", MinValue.values);
     }
 
     private void Update()

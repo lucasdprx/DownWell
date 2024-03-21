@@ -34,7 +34,6 @@ public class LifeBar : MonoBehaviour
             {
                 Time.timeScale = 0.0f;
                 VictoryDefeat.Instance._uiVictoryDefeat.SetActive(true);
-                TextProgression._win = true;
             }
         }
     }

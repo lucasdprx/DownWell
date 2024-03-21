@@ -21,7 +21,7 @@ public class FeedBackDamage : MonoBehaviour
 
     private void Update()
     {
-        if (_heTakeDamage && !TextProgression._win)
+        if (_heTakeDamage)
         {
             ChangeColorWall();
             if (_spriteRenderer1.color.r <= 0.196f)
@@ -37,8 +37,8 @@ public class FeedBackDamage : MonoBehaviour
     {
         if (_changeColor)
         {
-            _spriteRenderer1.color = new Color(0.4f, _spriteRenderer1.color.g, _spriteRenderer1.color.b, 1);
-            _spriteRenderer2.color = new Color(0.4f, _spriteRenderer2.color.g, _spriteRenderer2.color.b, 1);
+            _spriteRenderer1.color = new Color(0.6f, _spriteRenderer1.color.g, _spriteRenderer1.color.b, 1);
+            _spriteRenderer2.color = new Color(0.6f, _spriteRenderer2.color.g, _spriteRenderer2.color.b, 1);
             _changeColor = false;
         }
         _spriteRenderer1.color -= new Color(Time.deltaTime, 0, 0, 0);
