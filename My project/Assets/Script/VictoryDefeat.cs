@@ -18,7 +18,6 @@ public class VictoryDefeat : MonoBehaviour
     }
     public void MainMenu()
     {
-        _uiVictoryDefeat.SetActive(false);
         SceneManager.LoadScene("MainMenu");
         Time.timeScale = 1.0f;
     }
