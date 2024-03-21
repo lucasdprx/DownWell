@@ -24,6 +24,7 @@ public class MenuManager : MonoBehaviour
 
     public void Option()
     {
+        AudioManager.Instance.PlaySong("Button");
         _settingsMenu.SetActive(true);
         _buttonOption.SetActive(false);
         _buttonQuit.SetActive(false);
@@ -32,6 +33,7 @@ public class MenuManager : MonoBehaviour
 
     public void CloseOption()
     {
+        AudioManager.Instance.PlaySong("Button");
         _settingsMenu.SetActive(false);
         _buttonOption.SetActive(true);
         _buttonQuit.SetActive(true);

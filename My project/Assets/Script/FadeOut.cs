@@ -17,6 +17,7 @@ public class FadeOut : MonoBehaviour
         Time.timeScale = 1.0f;
         _image.gameObject.SetActive(true);
         _animation = true;
+        AudioManager.Instance.PlaySong("Button");
         if (MenuManager.Instance != null)
             PlayerPrefs.SetFloat("SFX", MinValue.values);
     }
