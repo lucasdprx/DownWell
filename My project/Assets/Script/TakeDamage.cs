@@ -13,6 +13,7 @@ public class TakeDamage : MonoBehaviour
             && !collision.otherCollider.gameObject.TryGetComponent(out IsGrounded isGrounded) && TextProgression._progress < 100)
         {
             AudioManager.Instance.PlaySong("Damage");
+            ComboSystem.Instance._combo = 0;
             LifeBar.Instance.UpdateImageLifeBar();
             _canTakeDamage = false;
             if (!LifeBar.Instance._isDeath)
