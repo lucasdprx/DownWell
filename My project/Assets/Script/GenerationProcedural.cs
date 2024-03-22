@@ -33,10 +33,12 @@ public class GenerationProcedural : MonoBehaviour
 
     void Start()
     {
-        _height += PlayerPrefs.GetInt("level") * 100;
-        _chanceSpawnEnnemyFly += PlayerPrefs.GetInt("level") * 100;
-        _chanceSpawnEnnemyWall += PlayerPrefs.GetInt("level") * 10;
-        _chanceSpawnEnnemyGround += PlayerPrefs.GetInt("level") * 5;
+        _height += PlayerPrefs.GetInt("level") * 50;
+        _chanceSpawnEnnemyFly -= PlayerPrefs.GetInt("level") * 30;
+        _chanceSpawnEnnemyWall -= PlayerPrefs.GetInt("level") * 5;
+        _chanceSpawnEnnemyGround -= PlayerPrefs.GetInt("level") * 4;
+        if (_chanceSpawnEnnemyGround < 0)
+            _chanceSpawnEnnemyGround = 0;
         _seed = Random.Range(-100000, 100000);
         GenerationMap();
     }
@@ -51,17 +53,17 @@ public class GenerationProcedural : MonoBehaviour
                 {
                     Instantiate(_blockDestructible, new Vector3(x, y), Quaternion.identity, gameObject.transform);
                 }
-                else if (Random.Range(0, _chanceSpawnEnnemyFly) == 0)
+                else if (Random.Range(0, _chanceSpawnEnnemyFly) == 0 && y < (int)_player.position.y - 5)
                 {
                     GameObject ennemyFly = Instantiate(_ennemyFly, new Vector3(x, y), Quaternion.identity);
                 }
-                else if ((x == _width - 1 || x == 0) && Random.Range(0, _chanceSpawnEnnemyWall) == 0 && y < (int)_player.position.y - 2)
+                else if ((x == _width - 1 || x == 0) && Random.Range(0, _chanceSpawnEnnemyWall) == 0 && y < (int)_player.position.y - 5)
                 {
                     GameObject ennemyWall = Instantiate(_ennemyWall, new Vector3(x, y), Quaternion.identity);
                     if (x == _width - 1)
                         ennemyWall.transform.Rotate(0, 180, 0);
                 }
-                else if (Mathf.PerlinNoise(x / 10f + _seed, (y - 1) / 10f + _seed) >= _chanceSpawn && Random.Range(0, _chanceSpawnEnnemyGround) == 0)
+                else if (Mathf.PerlinNoise(x / 10f + _seed, (y - 1) / 10f + _seed) >= _chanceSpawn && Random.Range(0, _chanceSpawnEnnemyGround) == 0 && y < (int)_player.position.y - 4)
                 {
                     GameObject ennemyGround = Instantiate(_ennemyGround, new Vector3(x, y), Quaternion.identity);
                 }

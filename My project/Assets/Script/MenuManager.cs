@@ -20,6 +20,7 @@ public class MenuManager : MonoBehaviour
         SceneManager.LoadScene("SceneLucas");
         Time.timeScale = 1.0f;
         PlayerPrefs.SetInt("level", 1);
+        PlayerPrefs.SetInt("hp", 4);
     }
 
     public void Option()

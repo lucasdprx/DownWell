@@ -11,6 +11,7 @@ public class IsGrounded : MonoBehaviour
         if (collision.gameObject.layer == 7)
         {
             _isGrounded = true;
+            ComboSystem.Instance._combo = 0;
             ShootPlayer.Instance._nbBullet = ShootPlayer.Instance._maxBullet;
             ShootPlayer.Instance.ResetImageBullet();
         }
@@ -22,6 +23,8 @@ public class IsGrounded : MonoBehaviour
             _particleFeather.Play();
             ShootPlayer.Instance.Jump(0.5f);
             ShootPlayer.Instance.AddImageBullet();
+            ComboSystem.Instance._combo += 1;
+            ComboSystem.Instance.StartAnimation();
             Destroy(collision.gameObject);
         }
 
@@ -32,6 +35,8 @@ public class IsGrounded : MonoBehaviour
             _particleFlask.Play();
             ShootPlayer.Instance.Jump(0.5f);
             ShootPlayer.Instance.AddImageBullet();
+            ComboSystem.Instance._combo += 1;
+            ComboSystem.Instance.StartAnimation();
             Destroy(collision.gameObject);
         }
     }

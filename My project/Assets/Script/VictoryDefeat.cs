@@ -15,6 +15,8 @@ public class VictoryDefeat : MonoBehaviour
     }
     public void StartGame()
     {
+        if (LifeBar.Instance._nbLife <= 0)
+            PlayerPrefs.SetInt("hp", 4);
         SceneManager.LoadScene("SceneLucas");
         Time.timeScale = 1.0f;
         _uiVictoryDefeat.SetActive(false);

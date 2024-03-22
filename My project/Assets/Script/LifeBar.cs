@@ -20,8 +20,13 @@ public class LifeBar : MonoBehaviour
 
     private void Start()
     {
-        _nbLife = _maxLife;
+        _nbLife = PlayerPrefs.GetInt("hp");
         _textLife.text = _nbLife.ToString() + " / " + _maxLife.ToString();
+        for (int i = 0; i < _maxLife - _nbLife; i++)
+        {
+            _imageLifeBar.sizeDelta = new Vector2(_widthImageLifeBar / _maxLife * _nbLife, _imageLifeBar.sizeDelta.y);
+            _imageLifeBar.transform.position -= new Vector3(_widthImageLifeBar / (_maxLife * 2), 0, 0);
+        }
     }
     public void UpdateImageLifeBar()
     {
@@ -40,5 +45,11 @@ public class LifeBar : MonoBehaviour
                 VictoryDefeat.Instance._uiVictoryDefeat.SetActive(true);
             }
         }
+    }
+    public void AddImageLifeBar()
+    {
+        _textLife.text = _nbLife.ToString() + " / " + _maxLife.ToString();
+        _imageLifeBar.sizeDelta = new Vector2(_widthImageLifeBar / _maxLife * _nbLife, _imageLifeBar.sizeDelta.y);
+        _imageLifeBar.transform.position += new Vector3(_widthImageLifeBar / (_maxLife * 2), 0, 0);
     }
 }

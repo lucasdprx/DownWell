@@ -25,6 +25,8 @@ public class ShootPlayer : MonoBehaviour
     public Sprite _spriteNormal;
     [SerializeField] private float _timeSpriteShoot;
 
+    [SerializeField] private AudioSource _audioSource;
+
 
     public static ShootPlayer Instance;
 
@@ -49,7 +51,7 @@ public class ShootPlayer : MonoBehaviour
                 Jump(0.75f);
             else if (_nbBullet > 0)
             {
-                AudioManager.Instance.PlaySong("Shoot");
+                _audioSource.Play();
                 SpawnBullet();
                 _particleShoot.Play();
                 _nbBullet--;

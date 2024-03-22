@@ -10,13 +10,13 @@ public class TakeDamage : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if ((collision.gameObject.TryGetComponent(out Move_EnnemiFly EnnemiFly) || collision.gameObject.TryGetComponent(out Move_EnnemiWall EnnemiWall)) && _canTakeDamage
-            && !collision.otherCollider.gameObject.TryGetComponent(out IsGrounded isGrounded))
+            && !collision.otherCollider.gameObject.TryGetComponent(out IsGrounded isGrounded) && TextProgression._progress < 100)
         {
             AudioManager.Instance.PlaySong("Damage");
             LifeBar.Instance.UpdateImageLifeBar();
+            _canTakeDamage = false;
             if (!LifeBar.Instance._isDeath)
             {
-                _canTakeDamage = false;
                 FeedBackDamage._heTakeDamage = true;
                 StartCoroutine(AnimationDeath(_speedFlicker));
             }
