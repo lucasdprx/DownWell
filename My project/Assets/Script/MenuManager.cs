@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class MenuManager : MonoBehaviour
 {
@@ -10,10 +11,17 @@ public class MenuManager : MonoBehaviour
     [SerializeField] private GameObject _buttonStart;
     [SerializeField] private GameObject _buttonOption;
     [SerializeField] private GameObject _buttonQuit;
+    [SerializeField] private GameObject _title;
+
+    [SerializeField] private Toggle _toggleFullScreen;
 
     private void Awake()
     {
         Instance = this;
+    }
+    private void Start()
+    {
+        _toggleFullScreen.isOn = Screen.fullScreen;
     }
     public void StartGame()
     {
@@ -30,6 +38,7 @@ public class MenuManager : MonoBehaviour
         _buttonOption.SetActive(false);
         _buttonQuit.SetActive(false);
         _buttonStart.SetActive(false);
+        _title.SetActive(false);
     }
 
     public void CloseOption()
@@ -39,10 +48,16 @@ public class MenuManager : MonoBehaviour
         _buttonOption.SetActive(true);
         _buttonQuit.SetActive(true);
         _buttonStart.SetActive(true);
+        _title.SetActive(true);
     }
 
     public void QuitGame()
     {
         Application.Quit();
+    }
+
+    public void SetFullScreen(bool isFullScreen)
+    {
+        Screen.fullScreen = isFullScreen;
     }
 }

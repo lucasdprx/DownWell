@@ -14,7 +14,7 @@ public class Move_EnnemiFly : MonoBehaviour
         if (Vector3.Distance(ShootPlayer.Instance._rbPlayer.gameObject.transform.position, gameObject.transform.position) <= _distEnnemi)
         {
             RotateSprite();
-            if (Vector3.Distance(ShootPlayer.Instance._rbPlayer.gameObject.transform.position, gameObject.transform.position) >= 2)
+            if (Vector3.Distance(ShootPlayer.Instance._rbPlayer.gameObject.transform.position, gameObject.transform.position) >= 1.5f)
                 MoveEnnemyFly();
         }
         else
