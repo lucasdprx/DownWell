@@ -40,7 +40,7 @@ public class LifeBar : MonoBehaviour
             {
                 _isDeath = true;
                 Time.timeScale = 0.0f;
-                VictoryDefeat.Instance._textDefeat.text = "You no longer have any life points" + "\n" + "You made it to wave " + PlayerPrefs.GetInt("level").ToString();
+                VictoryDefeat.Instance._textDefeat.text = "You died" + "\n" + "You made it to wave " + PlayerPrefs.GetInt("level").ToString();
                 PlayerPrefs.SetInt("level", 1);
                 VictoryDefeat.Instance._uiVictoryDefeat.SetActive(true);
             }
